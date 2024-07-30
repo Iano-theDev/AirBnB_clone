@@ -25,6 +25,7 @@ class BaseModel:
     def to_dict(self):
         """returns a dictionary containing all keys/values of __dict__ of the BaseModel instance"""
         bmDict = self.__dict__
+        bmDict['__class__'] = self.__class__.__name__
         bmDict["created_at"] = bmDict["created_at"].isoformat()
         if ('updated_at' in bmDict):
             bmDict["updated_at"] = bmDict["updated_at"].isoformat()
@@ -44,3 +45,12 @@ class BaseModel:
 # bm.save()
 # print(type(bm.created_at))
 # print(bm.to_dict())
+
+# bm = BaseModel()
+# bm.updated_at = datetime.utcnow()
+# d_json = bm.to_dict()
+# print(type(d_json))
+# print(type(d_json['id']))
+# print(type(d_json['created_at']))
+# print(type(d_json['__class__']))
+# print(d_json['__class__'])
