@@ -12,7 +12,7 @@ class BaseModel:
 
     def __init__(self):
         self.id = str(uuid.uuid4())
-        self.created_at = datetime.now().isoformat()
+        self.created_at = datetime.now()
 
     def __str__(self):
         """returns human readable representation of the BaseModel class"""
@@ -24,7 +24,13 @@ class BaseModel:
 
     def to_dict(self):
         """returns a dictionary containing all keys/values of __dict__ of the BaseModel instance"""
-        return self.__dict__
+        # if (self.updated_at):
+        #     self.updated_at.isoformat()
+        bmDict = self.__dict__
+        bmDict["created_at"] = bmDict["created_at"].isoformat()
+        if ('updated_at' in bmDict):
+            bmDict["updated_at"] = bmDict["updated_at"].isoformat()
+        return bmDict
 
 
 
@@ -35,3 +41,7 @@ class BaseModel:
 # newObj.save()
 
 # print(f"second time printing: {newObj.__str__()}")
+
+bm = BaseModel()
+print(type(bm.created_at))
+print(bm.to_dict())
