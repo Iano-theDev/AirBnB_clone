@@ -24,8 +24,6 @@ class BaseModel:
 
     def to_dict(self):
         """returns a dictionary containing all keys/values of __dict__ of the BaseModel instance"""
-        # if (self.updated_at):
-        #     self.updated_at.isoformat()
         bmDict = self.__dict__
         bmDict["created_at"] = bmDict["created_at"].isoformat()
         if ('updated_at' in bmDict):
@@ -42,7 +40,7 @@ class BaseModel:
 
 # print(f"second time printing: {newObj.__str__()}")
 
-bm = BaseModel()
-bm.save()
-print(type(bm.created_at))
-print(bm.to_dict())
+# bm = BaseModel()
+# bm.save()
+# print(type(bm.created_at))
+# print(bm.to_dict())
