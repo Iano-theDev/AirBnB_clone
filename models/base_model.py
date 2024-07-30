@@ -20,7 +20,7 @@ class BaseModel:
 
     def save(self):
         """updates the public instance attribute updated_at"""
-        self.updated_at = datetime.now().isoformat()
+        self.updated_at = datetime.now()
 
     def to_dict(self):
         """returns a dictionary containing all keys/values of __dict__ of the BaseModel instance"""
@@ -43,5 +43,6 @@ class BaseModel:
 # print(f"second time printing: {newObj.__str__()}")
 
 bm = BaseModel()
+bm.save()
 print(type(bm.created_at))
 print(bm.to_dict())
