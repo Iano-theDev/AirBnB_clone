@@ -10,8 +10,8 @@ classes = {"BaseModel": BaseModel}
 class FileStorage:
     """The file starage class
     handles sotorage of files to json and reading from json to dict"""
-    __file_path: str = "file.json"
-    __objects: dict = {}
+    __file_path = "file.json"
+    __objects = {}
 
     def all(self):
         """returns the dictionary __objects"""
@@ -35,7 +35,7 @@ class FileStorage:
             json.dump(dict_to_save, file)
 
     def reload(self):
-        """deserializes tjson file to __objects only if the JSON file exists.
+        """deserializes to json file to __objects only if the JSON file exists.
         No exception is raised if the file doesn't exist"""
         PATH = self.__file_path
         loaded_dict = {}
